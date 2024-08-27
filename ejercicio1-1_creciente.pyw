@@ -14,8 +14,9 @@ def subir():
     valor += 1
     numero.set(valor)
 
-contenedor = tk.Frame(ventana)
-contenedor.configure(width="550", height="400", bg="PeachPuff3", bd= 50)
+contenedor = tk.LabelFrame(ventana, text="Contador Creciente")
+contenedor.configure(width=500, height= 300, bg="PeachPuff3")
+contenedor.configure(padx= 50, pady=50)
 
 texto1 = tk.Label(contenedor, text= "Contador", padx= 10, pady=10)
 texto1.config(fg="black", bg= "PeachPuff3", font=("TimesNewRoman", 15))
