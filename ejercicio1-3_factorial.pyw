@@ -7,7 +7,8 @@ ventana.geometry("600x400")
 ventana.resizable(False, False)
 ventana.configure(bg="GREY38")
 
-rta = tk.StringVar()
+numero = tk.IntVar(value= 0)
+rta = tk.StringVar(value= "")
 
 def factorial(valor):
     valor = int(valor)
@@ -16,8 +17,8 @@ def factorial(valor):
     return valor * factorial(valor - 1)
 
 def mostrar():
-    numero = entrada_numero.get()
-    resultado = factorial(numero)
+    n = numero.get()
+    resultado = factorial(n)
     rta.set(resultado)
 
 #Contenedor de todito
@@ -31,7 +32,7 @@ etiqueta_numero.grid(row=1, column= 2, padx= 10, pady=10)
 
 #Entry donde se va a poner el número
 entrada_numero = tk.Entry(contenedor)
-entrada_numero.config(justify='center')
+entrada_numero.config( text = numero, justify='center')
 entrada_numero.grid(row=1, column=3, padx= 10, pady=10)
 
 #Etiqueta que denota donde se va a mostrar el factorial
@@ -46,6 +47,8 @@ entrada_factorial.grid(row=2, column=3, padx= 10, pady=10)
 #Botorn que calcula
 boton_calcular = tk.Button(contenedor, text="siguiente", padx= 10, pady=8, command= mostrar)
 boton_calcular.grid(row=3, column=3)
+
+numero.set(int(numero.get()) + 1)
 
 contenedor.pack(expand=True)
 ventana.mainloop()
