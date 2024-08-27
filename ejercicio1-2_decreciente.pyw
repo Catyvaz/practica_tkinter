@@ -2,7 +2,7 @@
 import tkinter as tk
 
 ventana = tk.Tk()
-ventana.title("Contador Creciente")
+ventana.title("Contador Decreciente")
 ventana.geometry("600x400")
 ventana.resizable(False, False)
 ventana.configure(bg="PeachPuff4")
