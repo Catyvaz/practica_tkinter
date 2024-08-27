@@ -20,6 +20,7 @@ def mostrar():
     n = numero.get()
     resultado = factorial(n)
     rta.set(resultado)
+    numero.set(int(numero.get()) + 1)
 
 #Contenedor de todito
 contenedor = tk.LabelFrame(ventana, text= "Factorial")
@@ -47,8 +48,6 @@ entrada_factorial.grid(row=2, column=3, padx= 10, pady=10)
 #Botorn que calcula
 boton_calcular = tk.Button(contenedor, text="siguiente", padx= 10, pady=8, command= mostrar)
 boton_calcular.grid(row=3, column=3)
-
-numero.set(int(numero.get()) + 1)
 
 contenedor.pack(expand=True)
 ventana.mainloop()
