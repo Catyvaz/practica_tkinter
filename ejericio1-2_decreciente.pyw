@@ -1,4 +1,4 @@
-#Ejercicio 1.1 - Contador Creciente.
+#Ejercicio 1.2 - Contador Decreciente.
 import tkinter as tk
 
 ventana = tk.Tk()
@@ -7,11 +7,11 @@ ventana.geometry("600x400")
 ventana.resizable(False, False)
 ventana.configure(bg="PeachPuff4")
 
-numero = tk.IntVar(value=0)
+numero = tk.IntVar(value=88)
 
-def subir():
+def bajar():
     valor = numero.get()
-    valor += 1
+    valor -= 1
     numero.set(valor)
 
 contenedor = tk.Frame(ventana)
@@ -23,11 +23,11 @@ texto1.grid(row=2, column=1)
 
 entrada = tk.Entry(contenedor)
 entrada.config(fg="Black", bg="White", font=("TimesNewRoman", 15))
-entrada.config(text = numero)
+entrada.config(text = numero, state='readonly', justify='center')
 
 entrada.grid(row=2, column= 2)
 
-boton = tk.Button(contenedor, text= "+", width= "5", command= subir)
+boton = tk.Button(contenedor, text= "-", width= "5", command= bajar)
 boton.config(fg= "Black", bg= "DarkOliveGreen3", font=("TimesNewRoman", 14))
 boton.grid(row=2, column=3, padx= 5, pady= 5)
 
