@@ -7,15 +7,18 @@ ventana.geometry("600x400")
 ventana.resizable(False, False)
 ventana.configure(bg="GREY38")
 
+rta = tk.StringVar()
+
 def factorial(valor):
+    valor = int(valor)
     if valor == 0 or valor == 1:
         return 1
     return valor * factorial(valor - 1)
 
 def mostrar():
-    valor = int(numero.get())
-    resultado = factorial(valor)
-    entrada_factorial.set(str(valor))
+    numero = entrada_numero.get()
+    resultado = factorial(numero)
+    rta.set(resultado)
 
 #Contenedor de todito
 contenedor = tk.LabelFrame(ventana, text= "Factorial")
@@ -29,7 +32,6 @@ etiqueta_numero.grid(row=1, column= 2, padx= 10, pady=10)
 #Entry donde se va a poner el número
 entrada_numero = tk.Entry(contenedor)
 entrada_numero.config(justify='center')
-numero = tk.IntVar(value= entrada_numero.get())
 entrada_numero.grid(row=1, column=3, padx= 10, pady=10)
 
 #Etiqueta que denota donde se va a mostrar el factorial
@@ -38,7 +40,7 @@ etiqueta_factorial.grid(row=2, column= 2, padx= 10, pady=10)
 
 #Entry donde se va a ver el factorial, no editable
 entrada_factorial = tk.Entry(contenedor)
-entrada_factorial.config(text = numero, state='readonly', justify='center')
+entrada_factorial.config(text = rta, state='readonly', justify='center')
 entrada_factorial.grid(row=2, column=3, padx= 10, pady=10)
 
 #Botorn que calcula
