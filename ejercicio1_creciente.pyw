@@ -7,6 +7,13 @@ ventana.geometry("600x400")
 ventana.resizable(False, False)
 ventana.configure(bg="PeachPuff4")
 
+numero = tk.IntVar(value=0)
+
+def subir():
+    valor = numero.get()
+    valor += 1
+    numero.set(valor)
+
 contenedor = tk.Frame(ventana)
 contenedor.configure(width="550", height="400", bg="PeachPuff3", bd= 50)
 
@@ -16,14 +23,13 @@ texto1.grid(row=2, column=1)
 
 entrada = tk.Entry(contenedor)
 entrada.config(fg="Black", bg="White", font=("TimesNewRoman", 15))
-#entrada.config(state=DISABLE)
+entrada.config(text = numero)
 
 entrada.grid(row=2, column= 2)
 
-boton = tk.Button(contenedor, text= "+", width= "10", height= 1, command= mostrar)
+boton = tk.Button(contenedor, text= "+", width= "5", command= subir)
 boton.config(fg= "Black", bg= "DarkOliveGreen3", font=("TimesNewRoman", 14))
 boton.grid(row=2, column=3, padx= 5, pady= 5)
-
 
 contenedor.pack(expand=True)
 ventana.mainloop()
