@@ -18,9 +18,9 @@ def factorial(valor):
 
 def mostrar():
     n = numero.get()
-    resultado = factorial(n)
+    resultado = factorial(n + 1)
     rta.set(resultado)
-    numero.set(int(numero.get()) + 1)
+    numero.set(n + 1)
 
 #Contenedor de todito
 contenedor = tk.LabelFrame(ventana, text= "Factorial")
@@ -33,7 +33,7 @@ etiqueta_numero.grid(row=1, column= 2, padx= 10, pady=10)
 
 #Entry donde se va a poner el número
 entrada_numero = tk.Entry(contenedor)
-entrada_numero.config( text = numero, justify='center')
+entrada_numero.config( text = numero, state='readonly', justify='center')
 entrada_numero.grid(row=1, column=3, padx= 10, pady=10)
 
 #Etiqueta que denota donde se va a mostrar el factorial
