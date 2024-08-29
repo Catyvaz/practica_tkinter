@@ -2,7 +2,7 @@ from tkinter import *
 
 class Contenedor_ingresos(Frame):
     def __init__(self, master):
-        super().__init__(master, width = 200, height = 500, bg = "NavajoWhite3", padx=10, pady=15)
+        super().__init__(master, width = 300, height = 500, bg = "NavajoWhite3", padx=10, pady=0)
         self.master = master
         self.pack(expand = True)
         self.ingresos()
@@ -27,25 +27,25 @@ class Contenedor_ingresos(Frame):
 
 class Contenedor_botones(Frame):
     def __init__(self, master):
-        super().__init__(master, width = 200, height = 500, bg = "NavajoWhite3", padx=10, pady=15)
+        super().__init__(master, width = 200, height = 400, bg = "NavajoWhite3", padx=10, pady=0)
         self.master = master
         self.pack(expand = True)
         self.botones()
     
     def botones(self):
-        self.suma = Button(self, text="+", font =("Times New Roman", 12))
-        self.resta = Button(self, text="-", font =("Times New Roman", 12))
-        self.multiplicar = Button(self, text="*", font =("Times New Roman", 12))
-        self.dividir = Button(self, text="/", font =("Times New Roman", 12))
-        self.porcentaje = Button(self, text="%", font =("Times New Roman", 12))
-        self.limpiar = Button(self, text="CLEAR", font =("Times New Roman", 12))
+        self.suma = Button(self, text="+", font =("Times New Roman", 11))
+        self.resta = Button(self, text="-", font =("Times New Roman", 11))
+        self.multiplicar = Button(self, text="*", font =("Times New Roman", 11))
+        self.dividir = Button(self, text="/", font =("Times New Roman", 11))
+        self.porcentaje = Button(self, text="%", font =("Times New Roman", 11))
+        self.limpiar = Button(self, text="CLEAR", font =("Times New Roman", 11))
 
-        self.suma.grid(row = 0, column = 0)
-        self.resta.grid(row = 1, column = 0)
-        self.multiplicar.grid(row = 1, column = 1)
-        self.dividir.grid(row = 1, column = 2)
-        self.porcentaje.grid(row = 2, column = 1)
-        self.limpiar.grid(row = 2, column = 2)
+        self.suma.grid(row = 4, column = 0, padx= 10, pady=10, ipadx= 55)
+        self.resta.grid(row = 4, column = 1, padx= 10, pady=10, ipadx= 55)
+        self.multiplicar.grid(row = 5, column = 0, padx= 10, pady=10, ipadx= 56)
+        self.dividir.grid(row = 5, column = 1, padx= 10, pady=10, ipadx= 56)
+        self.porcentaje.grid(row = 6, column = 0, padx= 10, pady=10, ipadx= 54)
+        self.limpiar.grid(row = 6, column = 1, padx= 10, pady=10, ipadx= 33)
 
 ventana = Tk()
 ventana.wm_title("Calculadora")
@@ -53,4 +53,6 @@ ventana.wm_geometry("400x450")
 ventana.wm_resizable(0,0)
 ventana.configure(bg="navajowhite4",)
 entradas = Contenedor_ingresos(ventana)
+boto = Contenedor_botones(ventana)
 entradas.mainloop()
+boto.mainloop()
