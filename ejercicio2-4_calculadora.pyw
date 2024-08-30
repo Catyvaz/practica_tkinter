@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 class Programa(Frame):
     def __init__(self, master = None):
@@ -10,17 +11,56 @@ class Programa(Frame):
         self.botones()
     
     def suma(self):
-        a = self.num1.get()
-        b = self.num2.get()
-        total = a + b
-        self.resultado.set(total)
+        try:
+            a = float(self.num1.get())
+            b = float(self.num2.get())
+            total = a + b
+            self.resultado.set(total)
+        except ValueError:
+            messagebox.showwarning("Error", "Ingrese valores numéricos")
+    def resta(self):
+        try:
+            a = float(self.num1.get())
+            b = float(self.num2.get())
+            total = a - b
+            self.resultado.set(total)
+        except ValueError:
+            messagebox.showwarning("Error", "Ingrese valores numéricos")
+    def multiplicacion(self):
+        try:
+            a = float(self.num1.get())
+            b = float(self.num2.get())
+            total = a * b
+            self.resultado.set(total)
+        except ValueError:
+            messagebox.showwarning("Error", "Ingrese valores numéricos")
+    def division(self):
+        try:
+            a = float(self.num1.get())
+            b = float(self.num2.get())
+            total = a / b
+            self.resultado.set(total)
+        except ValueError:
+            messagebox.showwarning("Error", "Ingrese valores numéricos")
+    def porcent(self):
+        try:
+            a = float(self.num1.get())
+            b = float(self.num2.get())
+            total = a % b
+            self.resultado.set(total)
+        except ValueError:
+            messagebox.showwarning("Error", "Ingrese valores numéricos")
+    def borrar(self):
+        self.num1.set(text = "")
+        self.num2.set(text = "")
+        self.resultado.set(text = "")
 
     def ingresos(self):
         contenedor1 = Frame(self, width= 300, height= 250, bg= "NavajoWhite3")
         contenedor1.pack(pady= 20)
         
-        self.num1 = DoubleVar()
-        self.num2 = DoubleVar()
+        self.num1 = StringVar(value="")
+        self.num2 = StringVar(value="")
         self.resultado = StringVar(value="")
 
         self.primer = Label(contenedor1, text= "Primer Número", font =("Times New Roman", 11), bg= "NavajoWhite3",anchor= W)
@@ -44,11 +84,11 @@ class Programa(Frame):
         contenedor2 = Frame(self, width= 350, height= 250, bg= "NavajoWhite3")
         contenedor2.pack(pady= 5)
 
-        self.suma = Button(contenedor2, text="+", font =("Times New Roman", 11), command= Programa.suma(self))
-        self.resta = Button(contenedor2, text="-", font =("Times New Roman", 11))
-        self.multiplicar = Button(contenedor2, text="*", font =("Times New Roman", 11))
-        self.dividir = Button(contenedor2, text="/", font =("Times New Roman", 11))
-        self.porcentaje = Button(contenedor2, text="%", font =("Times New Roman", 11))
+        self.suma = Button(contenedor2, text="+", font =("Times New Roman", 11), command= self.suma)
+        self.resta = Button(contenedor2, text="-", font =("Times New Roman", 11), command= self.resta)
+        self.multiplicar = Button(contenedor2, text="*", font =("Times New Roman", 11), command= self.multiplicacion)
+        self.dividir = Button(contenedor2, text="/", font =("Times New Roman", 11), command= self.division)
+        self.porcentaje = Button(contenedor2, text="%", font =("Times New Roman", 11)command = sse)
         self.limpiar = Button(contenedor2, text="CLEAR", font =("Times New Roman", 11))
 
         self.suma.grid(row = 4, column = 0, padx= 10, pady=10, ipadx= 55)
