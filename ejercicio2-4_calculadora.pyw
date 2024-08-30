@@ -51,9 +51,9 @@ class Programa(Frame):
         except ValueError:
             messagebox.showwarning("Error", "Ingrese valores numéricos")
     def borrar(self):
-        self.num1.set(text = "")
-        self.num2.set(text = "")
-        self.resultado.set(text = "")
+        self.num1.set("")
+        self.num2.set("")
+        self.resultado.set("")
 
     def ingresos(self):
         contenedor1 = Frame(self, width= 300, height= 250, bg= "NavajoWhite3")
@@ -88,8 +88,8 @@ class Programa(Frame):
         self.resta = Button(contenedor2, text="-", font =("Times New Roman", 11), command= self.resta)
         self.multiplicar = Button(contenedor2, text="*", font =("Times New Roman", 11), command= self.multiplicacion)
         self.dividir = Button(contenedor2, text="/", font =("Times New Roman", 11), command= self.division)
-        self.porcentaje = Button(contenedor2, text="%", font =("Times New Roman", 11)command = sse)
-        self.limpiar = Button(contenedor2, text="CLEAR", font =("Times New Roman", 11))
+        self.porcentaje = Button(contenedor2, text="%", font =("Times New Roman", 11), command = self.porcent)
+        self.limpiar = Button(contenedor2, text="CLEAR", font =("Times New Roman", 11), command= self.borrar)
 
         self.suma.grid(row = 4, column = 0, padx= 10, pady=10, ipadx= 55)
         self.resta.grid(row = 4, column = 1, padx= 10, pady=10, ipadx= 55)
