@@ -1,36 +1,50 @@
 from tkinter import *
 
 class Programa(Frame):
-    def __init__(self, master):
-        super().__init__(master, width = 400, height = 600, bg = "NavajoWhite4")
+    def __init__(self, master = None):
+        super().__init__(master, width = 400, height = 350, bg = "NavajoWhite4")
         self.master = master
-        self.pack(expand = True)
+        self.pack_propagate(False) 
+        self.pack(expand=True)
         self.ingresos()
+        self.botones()
     
+    def suma(self):
+        a = self.num1.get()
+        b = self.num2.get()
+        total = a + b
+        self.resultado.set(total)
+
     def ingresos(self):
-        contenedor1 = Frame(self, width= 300, height= 200, bg= "NavajoWhite3")
+        contenedor1 = Frame(self, width= 300, height= 250, bg= "NavajoWhite3")
+        contenedor1.pack(pady= 20)
+        
+        self.num1 = DoubleVar()
+        self.num2 = DoubleVar()
+        self.resultado = StringVar(value="")
 
-        self.primer = Label(contenedor1, text= "Primer Número", font =("Times New Roman", 11), bg= "NavajoWhite3")
+        self.primer = Label(contenedor1, text= "Primer Número", font =("Times New Roman", 11), bg= "NavajoWhite3",anchor= W)
         self.entrada_primer = Entry(contenedor1, justify='center')
-        self.entrada_primer.config( font =("Times New Roman", 11))
-        self.segundo = Label(contenedor1, text="Segundo Número", font =("Times New Roman", 11))
-        self.entrada_segundo = Entry(contenedor1, justify='center')
+        self.entrada_primer.config(textvariable= self.num1, font =("Times New Roman", 11))
+        self.segundo = Label(contenedor1, text="Segundo Número", font =("Times New Roman", 11), bg= "NavajoWhite3", anchor= W)
+        self.entrada_segundo = Entry(contenedor1, justify='center', textvariable= self.num2)
         self.entrada_segundo.config(font =("Times New Roman", 11))
-        self.resultado = Label(contenedor1, text="Resultado", font =("Times New Roman", 11))
+        self.resultado_rta = Label(contenedor1, text="Resultado", font =("Times New Roman", 11), bg= "NavajoWhite3", anchor= W)
         self.salida_resultado = Entry(contenedor1, state='readonly', justify='center')
-        self.salida_resultado.config(font =("Times New Roman", 11))
+        self.salida_resultado.config(text = self.resultado, font =("Times New Roman", 11))
 
-        self.primer.grid(row = 0, column = 0, padx= 8, pady=8, ipadx= 23)
+        self.primer.grid(row = 0, column = 0, padx= 8, pady=8, ipadx= 10, sticky= W)
         self.entrada_primer.grid(row = 0, column = 1, padx= 8, pady=8)
-        self.segundo.grid(row = 1, column = 0, padx= 8, pady=8, ipadx= 16)
+        self.segundo.grid(row = 1, column = 0, padx= 8, pady=8, ipadx= 10, sticky= W)
         self.entrada_segundo.grid(row = 1, column = 1, padx= 8, pady=8)
-        self.resultado.grid(row = 2, column = 0, padx= 8, pady=8, ipadx= 35) 
+        self.resultado_rta.grid(row = 2, column = 0, padx= 8, pady=8, ipadx= 10, sticky= W) 
         self.salida_resultado.grid(row = 2, column = 1, padx= 8, pady=8)
     
     def botones(self):
-        contenedor2 = Frame(self, width= 300, height= 300, bg= "NavajoWhite3")
+        contenedor2 = Frame(self, width= 350, height= 250, bg= "NavajoWhite3")
+        contenedor2.pack(pady= 5)
 
-        self.suma = Button(contenedor2, text="+", font =("Times New Roman", 11))
+        self.suma = Button(contenedor2, text="+", font =("Times New Roman", 11), command= Programa.suma(self))
         self.resta = Button(contenedor2, text="-", font =("Times New Roman", 11))
         self.multiplicar = Button(contenedor2, text="*", font =("Times New Roman", 11))
         self.dividir = Button(contenedor2, text="/", font =("Times New Roman", 11))
