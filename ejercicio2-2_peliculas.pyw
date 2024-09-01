@@ -3,7 +3,7 @@ from tkinter import messagebox
 
 class Programa(Frame):
     def __init__(self, master = None):
-        super().__init__(master, width = 450, height = 350, bg = "NavajoWhite4")
+        super().__init__(master, width = 450, height = 350, bg = "DeepSkyBlue3")
         self.master = master
         self.pack_propagate(False) 
         self.pack(expand=True)
@@ -29,14 +29,14 @@ class Programa(Frame):
             self.ingreso.set("")
 
     def ingreso_peliculas(self):
-        contenedor_ingreso = Frame(self, width= 300, height= 300, bg= "NavajoWhite2")
+        contenedor_ingreso = Frame(self, width= 300, height= 300, bg= "SkyBlue2")
         contenedor_ingreso.grid(row = 0, column = 0, pady= 20, padx=18, ipadx= 20, ipady= 65)
-        contenedor = Frame(contenedor_ingreso, bg= "NavajoWhite2")
+        contenedor = Frame(contenedor_ingreso, bg= "SkyBlue2")
         contenedor.pack(expand=True)
 
         self.ingreso= StringVar()
 
-        Label(contenedor, text="Escribe el titulo de una pelicula", font=("Times New Roman", 11), justify= CENTER, bg="NavajoWhite2").pack(padx= 10, pady= 10)
+        Label(contenedor, text="Escribe el titulo de una pelicula", font=("Times New Roman", 11), justify= CENTER, bg="SkyBlue2").pack(padx= 10, pady= 10)
         self.pelicula = Entry(contenedor)
         self.pelicula.config(textvariable= self.ingreso, font =("Times New Roman", 11), width= 30)
         self.pelicula.pack(padx= 10, pady= 10)
@@ -44,12 +44,12 @@ class Programa(Frame):
         self.boton_entrada.pack(padx= 10, pady= 10)
 
     def lista_peliculas(self):
-        contenedor_lista = Frame(self, width= 250, height= 300, bg= "NavajoWhite2")
+        contenedor_lista = Frame(self, width= 250, height= 300, bg= "SkyBlue2")
         contenedor_lista.grid(row = 0, column = 1,pady= 20, padx=18, ipadx= 20, ipady= 20)
-        contenedor1 =Frame(contenedor_lista, bg= "NavajoWhite2")
+        contenedor1 =Frame(contenedor_lista, bg= "SkyBlue2")
         contenedor1.pack(expand=True)
 
-        Label(contenedor1, text="Peliculas", font =("Times New Roman", 15), justify= CENTER, bg="NavajoWhite2").pack(padx= 10, pady= 6)
+        Label(contenedor1, text="Peliculas", font =("Times New Roman", 15, "bold"), justify= CENTER, bg="SkyBlue2").pack(padx= 10, pady= 6)
         self.lista = Listbox(contenedor1, width= 30, height= 10, font= ("Times New Roman", 11))
         self.lista.pack(padx= 10, pady= 6)
 
