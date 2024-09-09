@@ -35,8 +35,10 @@ class Programa(Frame):
 
         self.n1 = Spinbox(contenedor, textvariable= self.lim1, from_= 0, to=25, increment= 1, font= ("Times New Roman", 11), justify= CENTER)
         self.n1.grid(row= 0, column= 1, pady= 14, padx= 5, sticky= S)
+        self.n1.configure(state='readonly')
         self.n2 = Spinbox(contenedor, textvariable= self.lim2, from_= 0, to=25, increment= 1, font= ("Times New Roman", 11), justify= CENTER)
         self.n2.grid(row= 1, column= 1, pady= 14, padx= 5, sticky= S)
+        self.n2.configure(state='readonly')
         self.salida = Entry(contenedor)
         self.salida.config(textvariable= self.numR, font =("Times New Roman", 11), width= 18, state= "readonly", justify= CENTER)
         self.salida.grid(row= 2, column= 1)
