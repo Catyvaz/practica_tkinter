@@ -10,6 +10,9 @@ class Programa(Frame):
         self.ingresos()
         self.botones()
     
+    def validar(self, texto):
+        return texto.isdigit() or texto == ""
+
     def suma(self):
         try:
             a = float(self.num1.get())
@@ -58,6 +61,8 @@ class Programa(Frame):
     def ingresos(self):
         contenedor1 = Frame(self, width= 300, height= 250, bg= "NavajoWhite3")
         contenedor1.pack(pady= 20)
+
+        validacion = self.register(self.validar)
         
         self.num1 = StringVar(value="")
         self.num2 = StringVar(value="")
@@ -65,9 +70,9 @@ class Programa(Frame):
 
         self.primer = Label(contenedor1, text= "Primer Número", font =("Times New Roman", 11), bg= "NavajoWhite3",anchor= W)
         self.entrada_primer = Entry(contenedor1, justify='center')
-        self.entrada_primer.config(textvariable= self.num1, font =("Times New Roman", 11))
+        self.entrada_primer.config(textvariable= self.num1, font =("Times New Roman", 11), validate="key", validatecommand=(validacion, '%P'))
         self.segundo = Label(contenedor1, text="Segundo Número", font =("Times New Roman", 11), bg= "NavajoWhite3", anchor= W)
-        self.entrada_segundo = Entry(contenedor1, justify='center', textvariable= self.num2)
+        self.entrada_segundo = Entry(contenedor1, justify='center', textvariable= self.num2, validate="key", validatecommand=(validacion, '%P'))
         self.entrada_segundo.config(font =("Times New Roman", 11))
         self.resultado_rta = Label(contenedor1, text="Resultado", font =("Times New Roman", 11), bg= "NavajoWhite3", anchor= W)
         self.salida_resultado = Entry(contenedor1, state='readonly', justify='center')

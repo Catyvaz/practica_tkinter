@@ -9,6 +9,9 @@ class Programa(Frame):
         self.pack(expand=True)
         self.menu()
     
+    def validar(self, texto):
+        return texto.isdigit() or texto == ""
+
     def suma(self):
         try:
             a = float(self.num1.get())
@@ -62,12 +65,14 @@ class Programa(Frame):
             messagebox.showwarning("Error", "Seleccione una operación")
 
     def menu(self):
-        contenedor_total = Frame(self, width= 300, height= 300, bg= "MediumPurple3" )
+        contenedor_total = Frame(self, width= 400, height= 400, bg= "MediumPurple3" )
         contenedor_total.pack(expand= True, ipadx= 10, ipady= 10)
         contenedor = Frame(contenedor_total, width= 200, height= 200, bg= "MediumPurple3")
         contenedor.pack(expand=True)
         contenedor_radio = Frame(contenedor, bg= "MediumPurple3")
         contenedor_radio.grid(row= 1, column= 3, rowspan= 3)
+
+        validacion = self.register(self.validar)
 
         self.num1 = StringVar(value= "")
         self.num2 = StringVar(value= "")
@@ -78,10 +83,10 @@ class Programa(Frame):
         Label(contenedor, text="Resultado", font=("Verdana", 11), justify= LEFT, bg="MediumPurple3").grid(row= 3, column= 0, pady= 10, padx= 10, sticky= W)
         Label(contenedor, text="Operaciones", font=("Verdana", 11), justify= LEFT, bg="MediumPurple3").grid(row= 0, column= 3, pady= 10, padx= 10, sticky= W)
 
-        self.numero1 = Entry(contenedor)
+        self.numero1 = Entry(contenedor, validate="key", validatecommand=(validacion, '%P'))
         self.numero1.config(textvariable= self.num1, font =("Verdana", 11), width= 14, justify= CENTER)
         self.numero1.grid(row= 1, column= 2)
-        self.numero2 = Entry(contenedor)
+        self.numero2 = Entry(contenedor, validate="key", validatecommand=(validacion, '%P'))
         self.numero2.config(textvariable= self.num2, font =("Verdana", 11), width= 14, justify= CENTER)
         self.numero2.grid(row= 2, column= 2)
         self.resultado = Entry(contenedor)
