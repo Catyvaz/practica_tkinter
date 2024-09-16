@@ -50,4 +50,4 @@ boton_calcular = tk.Button(contenedor, text="siguiente", padx= 10, pady=8, comma
 boton_calcular.grid(row=3, column=3)
 
 contenedor.pack(expand=True)
-ventana.mainloop()
+ventana.mainloop() 
